@@ -2,10 +2,10 @@
 
 const React = require('react');
 
-const Toolbar = () => (
+const Toolbar = ({onAdd, onRemove}) => (
   <nav>
-    <button>+ Add note</button>
-    <button>Delete note</button>
+    <button onClick={onAdd}>+ Add note</button>
+    <button onClick={onRemove}>Delete note</button>
   </nav>
 );
 

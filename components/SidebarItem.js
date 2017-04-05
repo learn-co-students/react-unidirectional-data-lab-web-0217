@@ -6,13 +6,15 @@ const classNames = require('classnames');
 class SidebarItem extends React.Component {
   static getTitle (file) {
     // Find first non-empty line and use as title.
-    return file.split('\n').find(line => line.length);
+    return file && file.split('\n').find(line => line.length);
   }
+
   render() {
     return (
-      <li>
-        <a>
-        </a>
+      <li className={classNames('sidebar__item', { 'sidebar__item--selected': this.props.isSelected })}>
+      <a href='#' onClick={this.props.onClick} className='sidebar__link'>
+        {SidebarItem.getTitle(this.props.file) || <em>Untitled</em>}
+      </a>
       </li>
     );
   }
