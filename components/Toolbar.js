@@ -8,3 +8,5 @@ const Toolbar = () => (
     <button>Delete note</button>
   </nav>
 );
+
+module.exports = Toolbar
