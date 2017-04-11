@@ -9,9 +9,12 @@ export default class SidebarItem extends React.Component {
     return file.split('\n').find(line => line.length);
   }
   render() {
+    const { file, isSelected, onClick } = this.props
+    let selection = isSelected ? "sidebar__item--selected" : "sidebar__item"
     return (
-      <li>
-        <a>
+      <li className={selection}>
+        <a className="sidebar__link" onClick={onClick}>
+          {file ? file.split('\n')[0] : <em>Untitled</em>}
         </a>
       </li>
     );
